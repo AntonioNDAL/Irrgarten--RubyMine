@@ -23,7 +23,7 @@ module Irrgarten
     end
 
     def to_s
-      return "[" + @effect.to_s + ", " + @uses.to_s + "]"  #Hay que pasar los números a string (solo Ruby)
+      return "[" + @effect.to_s + ", " + @uses.to_s + "]"
     end
   end
 end
