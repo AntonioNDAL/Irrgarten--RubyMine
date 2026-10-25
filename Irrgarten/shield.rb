@@ -4,7 +4,9 @@ require_relative 'dice'
 module Irrgarten
   class Shield < CombatElement
 
-    def initialize (protection, uses)
+    public_class_method :new
+
+    def initialize(protection, uses)
       super
     end
 
@@ -13,8 +15,7 @@ module Irrgarten
     end
 
     def to_s
-      "S" + super
+      "S#{super}"
     end
-
   end
 end
