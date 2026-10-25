@@ -3,6 +3,9 @@
 module Irrgarten
   class LabyrinthCharacter
     private_class_method :new
+    
+    attr_reader :name, :row, :col
+    attr_accessor :health
 
     def initialize(name, intelligence, strength, health)
       @name = name
@@ -15,35 +18,27 @@ module Irrgarten
 
     protected
 
-    def got_wounded
-      @health -= 1
-    end
-
-    def get_intelligence
+    def intelligence
       @intelligence
     end
 
-    def get_strength
+    def strength
       @strength
     end
 
-    def get_health
-      @health
+    def got_wounded
+      @health -= 1
     end
-
-    def set_health(health)
-      @health = health
-    end
-
+    
     public
 
     def copy(other)
       @name = other.name
-      @intelligence = other.get_intelligence
-      @strength = other.get_strength
-      @health = other.get_health
-      @row = other.get_row
-      @col = other.get_col
+      @intelligence = other.intelligence
+      @strength = other.strength
+      @health = other.health
+      @row = other.row
+      @col = other.col
     end
 
     def dead
@@ -57,14 +52,6 @@ module Irrgarten
 
     def to_s
       "#{@name}: Inteligencia(#{@intelligence}), Fuerza(#{@strength}), Salud(#{@health}), Posición(#{@row})(#{@col})"
-    end
-
-    def get_row
-      @row
-    end
-
-    def get_col
-      @col
     end
 
   end
