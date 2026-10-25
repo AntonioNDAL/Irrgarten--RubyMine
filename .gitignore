@@ -1,0 +1,18 @@
+.idea/
+*.iml
+*.iws
+
+UT Irgarrten--RubyMine*
+UT*
+
+.DS_Store
+Thumbs.db
+
+*.rbc
+.ruby-version
+.ruby-gemset
+
+/.bundle/
+/vendor/bundle/
+/vendor/ruby/
+Gemfile.lock
