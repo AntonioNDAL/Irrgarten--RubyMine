@@ -3,20 +3,18 @@ require_relative 'combat_element'
 
 module Irrgarten
   class Weapon < CombatElement
-    public_class_method::new
+    public_class_method :new
 
     def initialize(power, uses)
-      super #en Ruby al hacer super coge el método del padre, y si no le das elementos coge los del método
+      super 
     end
-    #También podríamos no poner initialize ya que lo hereda.
 
-    def attack()
-      produceEffect
+    def attack
+      produce_effect
     end
 
     def to_s
-      "W" + super
+      "W#{super}"
     end
-
   end
 end
