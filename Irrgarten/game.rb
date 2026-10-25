@@ -108,7 +108,7 @@ module Irrgarten
       current_row = @current_player.row
       current_col = @current_player.col
 
-      valid_moves = @labyrinth.validMoves(current_row, current_col)
+      valid_moves = @labyrinth.valid_moves(current_row, current_col)
 
       @current_player.move(nDirection, valid_moves)
     end
@@ -158,11 +158,11 @@ module Irrgarten
           fuzzy = FuzzyPlayer.new(@current_player)
           @players[@num_current_player] = fuzzy
           @current_player = fuzzy
-          @labyrinth.put_player_2d(-1, -1, @current_player.row, @current_player.col, @current_player)
+          
+          @labyrinth.put_player_2D(-1, -1, @current_player.row, @current_player.col, @current_player)
           log_player_skip_turn
         end
       end
-
     end
 
     def log_player_won
