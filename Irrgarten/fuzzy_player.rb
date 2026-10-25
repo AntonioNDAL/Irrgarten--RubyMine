@@ -3,19 +3,15 @@ module Irrgarten
   class FuzzyPlayer < Player
     def initialize(other)
       copy(other)
-      @number = other.number
-      @weapons = other.instance_variable_get(:@weapons)
-      @shields = other.instance_variable_get(:@shields)
-      @consecutive_hits = other.instance_variable_get(:@consecutive_hits)
     end
 
     def move(direction, valid_moves)
       pref = super(direction, valid_moves)
-      Dice.next_step(pref, valid_moves, @intelligence)
+      Dice.next_step(pref, valid_moves, intelligence)
     end
 
     def attack
-      sum_weapons + Dice.intensity(@strength)
+      sum_weapons + Dice.intensity(strength)
     end
 
     def defend(received_attack)
