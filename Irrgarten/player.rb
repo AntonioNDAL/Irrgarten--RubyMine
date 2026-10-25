@@ -15,7 +15,7 @@ module Irrgarten
     @@INITIAL_HEALTH = 10
     @@HITS2LOSE = 3
 
-    attr_reader :number, :row, :col
+    attr_reader :number
 
     # Métodos de instancia públicos
 
@@ -27,6 +27,24 @@ module Irrgarten
       @shields = []
     end
 
+    protected
+    
+    attr_reader :weapons, :shields, :consecutive_hits
+
+    public
+
+    def copy(other)
+      super(other)
+      @number = other.number
+      @consecutive_hits = other.consecutive_hits
+      
+      @weapons = []
+      other.weapons.each { |w| @weapons << w }
+      
+      @shields = []
+      other.shields.each { |s| @shields << s }
+    end
+    
     def resurrect
       self.health = @@INITIAL_HEALTH
       @consecutive_hits = 0
