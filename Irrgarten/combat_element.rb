@@ -3,14 +3,15 @@ module Irrgarten
   class CombatElement
     private_class_method :new
 
-    def initialize (effect, uses)
+    def initialize(effect, uses)
       @effect = effect
       @uses = uses
     end
 
     protected
-    def produce_effect()
-      if(@uses > 0)
+    
+    def produce_effect
+      if @uses > 0
         @uses -= 1
         return @effect
       end
@@ -18,12 +19,13 @@ module Irrgarten
     end
 
     public
-    def discard()
+    
+    def discard
       Dice.discard_element(@uses)
     end
 
     def to_s
-      return "[" + @effect.to_s + ", " + @uses.to_s + "]"
+      "[#{@effect}, #{@uses}]"
     end
   end
 end
