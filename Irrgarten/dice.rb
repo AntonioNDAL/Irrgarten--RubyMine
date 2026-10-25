@@ -64,9 +64,8 @@ module Irrgarten
     def self.discard_element(uses_left)
       if uses_left == @@MAX_USES
         return false
-      else if uses_left == 0
+      elsif uses_left == 0
              return true
-           end
       end
 
       probability = (@@MAX_USES - uses_left).to_f / @@MAX_USES
